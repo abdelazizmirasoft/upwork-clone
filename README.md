@@ -23,7 +23,10 @@ Connect to your db server in order to create the db app user and grant him the n
 Access the app container to generate the laravel key and save it to the .env file:
 
 `docker-compose exec app bash`
+
 `php artisan key:generate`
+
 Don't forget to cache the configuration settings:
+
 `php artisan config:cache`
 
