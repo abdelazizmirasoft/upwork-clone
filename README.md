@@ -18,7 +18,7 @@ Connect to your db server in order to create the db app user and grant him the n
 
 `CREATE USER 'upwork_user'@'%' IDENTIFIED WITH mysql_native_password BY 'p@$sw0rd';`
 
-`GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'upwork_user'@'%';`
+`GRANT SHOW DATABASES, CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'upwork_user'@'%';`
 
 Access the app container to generate the laravel key and save it to the .env file:
 
