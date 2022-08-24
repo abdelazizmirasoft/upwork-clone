@@ -1,3 +1,4 @@
+@vite('resources/css/app.css')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -9,6 +10,7 @@
     </head>
     <body>
       <div class="container mx-auto px-4">
+        @include('partials.navbar')
       @yield('content')
       </div>
     </body>
