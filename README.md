@@ -8,25 +8,19 @@ Upwork clone is a full-stack application that sets up features such as an advanc
 
 `git clone https://github.com/abdelazizmirasoft/upwork-clone.git upwork-clone`
 
-`docker run --rm -v $(pwd):/app composer install`
+`cd upwork-clone`
 
-`sudo chown -R $USER:$USER upwork-clone`
+Build the containers:
 
-Connect to your db server in order to create the db app user and grant him the necessary privileges:
+`./vendor/bin/sail up -d`
 
-`docker-compose exec db sh -c 'mysql -uroot -p${MYSQL_ROOT_PASSWORD}'`
+Instead of repeatedly typing vendor/bin/sail to execute Sail commands, you may wish to configure a Bash alias that allows you to execute Sail's commands more easily (optional):
 
-`CREATE USER 'upwork_user'@'%' IDENTIFIED WITH mysql_native_password BY 'p@$sw0rd';`
+`alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'`
 
-`GRANT SHOW DATABASES, CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'upwork_user'@'%';`
+`sail composer update`
 
-Access the app container to generate the laravel key and save it to the .env file:
+`sail artisan migrate`
 
-`docker-compose exec app bash`
 
-`php artisan key:generate`
-
-Don't forget to cache the configuration settings:
-
-`php artisan config:cache`
 
