@@ -1,7 +1,7 @@
 <header class="flex justify-between item-center py-6">
     <div>Upwork Clone</div>
     <nav>
-        <a href="#" class="mr-5 hover:text-green-500">Our Mission</a>
+        <a href="{{ route('jobs') }}" class="mr-5 hover:text-green-500">Our Jobs</a>
         @guest
             <a href="{{ route('login') }}" class="mr-5 hover:text-green-500">Login</a>
             <a href="{{ route('register') }}" class="mr-5 hover:text-green-500">Register</a>

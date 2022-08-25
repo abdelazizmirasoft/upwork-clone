@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -43,8 +45,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
+
+    /**
+     * Get the Role assigned to this User.
+     *
+     * @return BelongsTo
+     */
+    public function role():BelongsTo
     {
         return $this->belongsTo('App\Models\Role');
+    }
+
+    /**
+     * Get the Jobs associated with this User 
+     *
+     * @return HasMany
+     */
+    public function jobs(): HasMany
+    {
+        return $this->hasMany('App\Models\Job');
     }
 }
