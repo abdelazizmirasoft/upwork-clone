@@ -1,5 +1,6 @@
 <header class="flex justify-between item-center py-6">
     <div>Upwork Clone</div>
+    <livewire:search />
     <nav>
         <a href="{{ route('jobs') }}" class="mr-5 hover:text-green-500">Our Jobs</a>
         @guest
