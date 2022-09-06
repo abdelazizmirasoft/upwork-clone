@@ -12,8 +12,10 @@ class Job extends Component
     {
         if(auth()->check()){
             auth()->user()->likes()->toggle($this->job->id);
+        }else{
+            // send flash message event
+            $this->emit('flash', 'Please connect to be able to like this job and bookmark it!', 'error');
         }
-        // send flash message event
     }
 
     public function render()

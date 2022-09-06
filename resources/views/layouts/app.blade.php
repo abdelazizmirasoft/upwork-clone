@@ -7,12 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Upwork Clone</title>
+        <style>
+          [x-cloak] { display: none !important; }
+        </style>
         @livewireStyles
     </head>
     <body>
       <div class="container mx-auto px-4">
         @include('partials.navbar')
-      @yield('content')
+        <livewire:flash />
+        @yield('content')
       </div>
       @livewireScripts
     </body>
