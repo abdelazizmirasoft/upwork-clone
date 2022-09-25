@@ -76,4 +76,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Job');
     }
+
+    /**
+     * Get the Proposals made by this User.
+     *
+     * @return hasMany
+     */
+    public function proposals():HasMany
+    {
+        return $this->hasMany('App\Models\Proposal'); 
+    }
 }
