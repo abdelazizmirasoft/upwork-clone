@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -46,44 +47,36 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-    /**
-     * Get the Role assigned to this User.
-     *
-     * @return BelongsTo
-     */
-    public function role():BelongsTo
+    public function role(): BelongsTo
     {
         return $this->belongsTo('App\Models\Role');
     }
 
-    /**
-     * Get the Jobs associated with this User 
-     *
-     * @return HasMany
-     */
     public function jobs(): HasMany
     {
         return $this->hasMany('App\Models\Job');
     }
 
-    /**
-     * Get the Jobs liked by this User.
-     *
-     * @return BelongsToMany
-     */
-    public function likes():BelongsToMany
+    public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\Models\Job');
     }
 
-    /**
-     * Get the Proposals made by this User.
-     *
-     * @return hasMany
-     */
-    public function proposals():HasMany
+    public function proposals(): HasMany
     {
-        return $this->hasMany('App\Models\Proposal'); 
+        return $this->hasMany('App\Models\Proposal');
+    }
+
+    public function conversations()
+    {
+        return Conversation::where(function ($q) {
+            return $q->where('to', $this->id)
+            ->orWhere('from', $this->id);
+        });
+    }
+
+    public function getConversationsAttribute()
+    {
+        return $this->conversations()->get();
     }
 }

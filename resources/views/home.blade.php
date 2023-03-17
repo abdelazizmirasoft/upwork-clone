@@ -54,7 +54,7 @@
       @if ($proposal->validated)
       <span class="bg-white border border-green-500 text-xs p-1 my-2 inline-block text-green-500 rounded">Already confirmed</span>
       @else
-      {{-- <a href="{{ route('confirm.proposal', [$proposal->id])}}" class="bg-green-500 text-xs py-2 px-2 mt-2 mb-3 inline-block text-white hover:bg-green-200 hover:text-green-500 duration-200 transition rounded">Confirm proposal</a> --}}
+      <a href="{{ route('confirm.proposal', [$proposal->id])}}" class="bg-green-500 text-xs py-2 px-2 mt-2 mb-3 inline-block text-white hover:bg-green-200 hover:text-green-500 duration-200 transition rounded">Confirm proposal</a>
       @endif
       @endforeach
       </ul>
