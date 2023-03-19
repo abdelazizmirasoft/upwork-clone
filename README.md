@@ -4,6 +4,12 @@
 
 Upwork clone is a full-stack application that sets up features such as an advanced search bar, application submission, flash messages, messaging and more, using Laravel 9 and Livewire. We will add then TailwindCSS and AlpineJS to complete our TALL stack
 
+## Demo Video
+
+https://user-images.githubusercontent.com/54293593/226208363-5077ca2a-c77e-43f2-a6a6-03275f954e0a.mp4
+
+
+
 ## Set up and deploy Upwork-Clone
 
 `git clone https://github.com/abdelazizmirasoft/upwork-clone.git upwork-clone`
